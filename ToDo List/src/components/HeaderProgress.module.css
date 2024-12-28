@@ -1,0 +1,33 @@
+.headerProgress {
+    padding: 1.5rem 0;
+    display: flex;
+    flex: 1;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerProgress aside {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-weight: bold;
+}
+
+.headerProgress aside:first-child {
+    color: var(--blue);
+}
+
+.headerProgress aside:last-child {
+    color: var(--purple);
+}
+
+.headerProgress aside span {
+    color: var(--gray-100);
+    background-color: var(--gray-400);
+    border-radius: 16px;
+    padding: 2px 8px;
+}
+
+
