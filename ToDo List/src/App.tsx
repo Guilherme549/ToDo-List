@@ -5,9 +5,15 @@ import { Input } from './components/Input'
 import styles from './App.module.css';
 import { HeaderProgress } from './components/HeaderProgress';
 import { ListTasks } from './components/ListTasks';
-import { Empty } from './components/Empty';
+import { useState } from 'react';
+
 
 function App() {
+  const [activated, setActivated] = useState(true);
+
+  function handleActivatedIconChek(){
+    setActivated(prevState => !prevState)
+  }
 
   return (
     <div className='content'>
@@ -21,9 +27,10 @@ function App() {
               <PlusCircle size={16} color="#f2f2f2" weight="bold" />
             </Button>
           </div>
-          <div className={styles.listTask}>
+          <div>
             <HeaderProgress />
-            <Empty />
+            <ListTasks active={activated} onClick={handleActivatedIconChek}/>
+            {/* <Empty /> */}
           </div>
         </section>
       </main>

@@ -1,3 +1,66 @@
 .listTasks {
+    display: flex;
+    flex: 1;
+    gap: 0.75rem;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid var(--gray-400);
+    border-radius: 8px;
+    background-color: var(--gray-500);
+    color: var(--gray-100);
+
+    padding: 1rem;
+
+}
+
+.listTasks label {
+    display: flex;
+}
+
+.listTasks input[type="checkbox"] {
+    display: none;
+}
+
+
+
+.icon {
+    cursor: pointer;
+    color: var(--gray-500);
+    border: 2.5px solid var(--blue);
+    border-radius: 100%;
+    margin-right: 1.3rem;
+    background-color: transparent;
+    content: none;
+}
+
+.iconActive {
+    cursor: pointer;
+    color: var(--gray-100);
+    border: 2.5px solid var(--purple-dark);
+    border-radius: 100%;
+    margin-right: 1.3rem;
+    background-color: var(--purple-dark);
+}
+
+.paragraphActivated {
+    text-decoration: line-through;
+    color: var(--gray-300);
+}
+
+.listTasks div > label > p {
+    padding: 39,5rem;
+}
+
+.listTasks button {
+
+    background-color: var(--gray-500);
+    border: none;
+    cursor: pointer;
+    padding-bottom: 20px;
+}
+
+.listTasks svg {
     
 }
