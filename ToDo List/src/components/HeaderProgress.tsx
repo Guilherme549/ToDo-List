@@ -1,16 +1,21 @@
 import styles from './HeaderProgress.module.css'
 
-export function HeaderProgress(){
+type Props = {
+    countCreatedTasks: number
+    countCompletedTasks?: number
+}
+
+export function HeaderProgress({ countCreatedTasks, countCompletedTasks = 0}: Props){
     return (
         <header className={styles.headerProgress}>
             <aside>
                 <p>Tarefas criadas</p>
-                <span>0</span>
+                <span>{countCreatedTasks}</span>
             </aside>
             
             <aside>
                 <p>Concluídas</p>
-                <span>0</span>
+                <span>{countCompletedTasks}</span>
             </aside>
         </header>
     )

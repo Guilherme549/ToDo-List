@@ -1,26 +1,50 @@
+
+
 import { Check, Trash } from 'phosphor-react'
+import { ITask } from '../App'
+
 import styles from './ListTasks.module.css'
 
-type Props = {
-    active: boolean
-    onClick: () => void
+interface Props {
+  data: ITask
+  removeTask: (id: number) => void
+  toggleTaskStatus: ({ id, value }: { id: number; value: boolean }) => void
 }
 
+export function ListTasks({ data, removeTask, toggleTaskStatus }: Props) {
+  function handleTaskToggle() {
+    toggleTaskStatus({ id: data.id, value: !data.isChecked })
+  }
 
-export function ListTasks( { active, onClick }: Props){
-    return (
-        <div className={styles.listTasks}>
-            <div>
-                <label htmlFor="checkbox">
-                    <input type="checkbox" name="checkbox"/>
-                    <span><Check size={19} className={active ? `${styles.icon}` : `${styles.iconActive}`} onClick={onClick}/></span>
-                    <p className={active ? ` `: styles.paragraphActivated}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
-                </label>
-            </div>
+  function handleRemove() {
+    removeTask(data.id)
+  }
 
-            <button>
-                <Trash size={16} color="#808080"/>
-            </button>
-        </div>
-    )
+  const checkboxCheckedClassname = data.isChecked
+    ? styles['checkbox-checked']
+    : styles['checkbox-unchecked']
+  const paragraphCheckedClassname = data.isChecked
+    ? styles['paragraph-checked']
+    : ''
+
+  return (
+    <div className={styles.container}>
+      <div>
+        <label htmlFor="checkbox" onClick={handleTaskToggle}>
+          <input readOnly type="checkbox" checked={data.isChecked} />
+          <span className={`${styles.checkbox} ${checkboxCheckedClassname}`}>
+            {data.isChecked && <Check size={12} />}
+          </span>
+
+          <p className={`${styles.paragraph} ${paragraphCheckedClassname}`}>
+            {data.text}
+          </p>
+        </label>
+      </div>
+
+      <button onClick={handleRemove}>
+        <Trash size={16} color="#808080" />
+      </button>
+    </div>
+  )
 }
