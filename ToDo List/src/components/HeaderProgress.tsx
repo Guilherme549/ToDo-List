@@ -15,7 +15,7 @@ export function HeaderProgress({ countCreatedTasks, countCompletedTasks = 0}: Pr
             
             <aside>
                 <p>Concluídas</p>
-                <span>{countCompletedTasks}</span>
+                <span>{countCompletedTasks} de {countCreatedTasks}</span>
             </aside>
         </header>
     )
